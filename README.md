@@ -1,1 +1,1 @@
-https://beixinqq.github.io/CSS_layUI/index(%E9%9D%99).html
+https://beixinqq.github.io/CSS_layUI/index.html
