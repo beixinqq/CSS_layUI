@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <style>
+        html {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            line-height: 1.6;
+            font-family: -apple-system-font, "Helvetica Neue", sans-serif;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100%;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        a{
+            text-decoration: none;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+
+        .toptips {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 5px;
+            background-color: #1AAD19;
+            font-size: 17px;
+            text-align: center;
+            z-index: 5000;
+            color: #ffffff;
+        }
+
+        .container, .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: red;
+            min-width: 320px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .container {
+            overflow: hidden;
+        }
+
+        .page {
+            overflow-y: auto;
+            overflow-scrolling: touch;
+            -webkit-overflow-scrolling: touch;
+            font-size: 40px;
+            background-color: #f8f8f8;
+            border: 1px solid black;
+        }
+
+        .page.button .page_hd {
+            padding: 40px;
+            /*background-color: red;*/
+            border: 1px solid red;
+        }
+
+        .page.button .page_title {
+            font-size: 25px;
+            text-align: left;
+        }
+        .page.button .page_desc{
+            margin-top: 5px;
+            font-size: 15px;
+        }
+        .page_bd_spacing{
+            padding: 0 15px;
+            border: 1px solid red;
+        }
+        .ui-btn{
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 14px;
+            padding-right: 14px;
+            color: #ffffff;
+            line-height: 2.5;
+            border-radius: 5px;
+            overflow: hidden;
+            font-size: 20px;
+            text-align: center;
+        }
+        .ui-btn_primary{
+            background-color: #1AAD19;
+        }
+        .ui-btn:after{
+            content: "";
+            width: 200%;
+            height: 200%;
+            position: absolute;
+            top:0;
+            left: 0;
+            border: 1px solid rgba(0,0,0,0.2);
+            box-sizing: border-box;
+            border-radius: 10px;
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+        }
+        .ui-btn+.ui-btn{
+            margin-top: 15px;
+        }
+        .ui-btn_loading.ui-btn_primary{
+            background-color: #179B16;
+        }
+        .ui-loading{
+            width: 20px;
+            height: 20px;
+        }
+        .ui-btn_default{
+            color: #000000;
+            background-color: #f8f8f8;
+        }
+        .page.button .button-sp-area{
+            width: 60%;
+            padding: 15px 0;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+        .ui-btn_plain-primary{
+            color: #1aad19;
+            border: 1px solid #1AAD19;
+        }
+        .ui-btn_mini{
+            display: inline-block;
+            font-size: 13px;
+            padding: 0 1.32em;
+            line-height: 2.3;
+        }
+
+    </style>
+</head>
+<body>
+<div class="toptips">表单-button</div>
+<div class="container">
+    <div class="page button">
+        <div class="page_hd">
+            <h1 class="page_title">Button</h1>
+            <p class="page_desc">按钮</p>
+        </div>
+        <div class="page_bd page_bd_spacing">
+            <a href="javascript:;" class="ui-btn ui-btn_primary">按钮Button</a>
+            <a href="javascript:;" class="ui-btn ui-btn_primary ui-btn_loading">
+                <i class="ui-loading">icon</i>
+                按钮Button</a>
+            <a href="javascript:;" class="ui-btn ui-btn_default">按钮Button</a>
+        </div>
+        <div class="button-sp-area">
+            <a href="javascript:;" class="ui-btn ui-btn_primary">按钮Button</a>
+            <a href="javascript:;" class="ui-btn ui-btn_plain-primary">按钮Button</a>
+            <a href="javascript:;" class="ui-btn ui-btn_primary">按钮Button</a>
+            <a href="javascript:;" class="ui-btn ui-btn_mini ui-btn_primary">按钮</a>
+            <a href="javascript:;" class="ui-btn ui-btn_mini ui-btn_primary">按钮</a>
+            <a href="javascript:;" class="ui-btn ui-btn_mini ui-btn_primary">按钮</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
