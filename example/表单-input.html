@@ -396,6 +396,84 @@
         .ui-cell_select-before .ui-cell_bd{
             padding-left: 15px;
         }
+        .ui-cell_select .ui-cell_bd:after{
+            content: '';
+            display: inline-block;
+            height: 6px;
+            width: 6px;
+            border-width: 2px 2px 0 0;
+            border-color: #c8c8cd;
+            border-style: solid;
+            transform: matrix(.71,.71,-.71,.71,0,0);
+            position: absolute;
+            top:50%;
+            right: 15px;
+            margin-top: -4px;
+        }
+        .ui-cell_select-after{
+            padding-left: 15px;
+        }
+        /*Agress*/
+        .ui-agree{
+            display: block;
+            padding: .5em 15px;
+            font-size: 13px;
+        }
+        .ui-agree_checkbox{
+            -webkit-appearance: none;
+            appearance: none;
+            outline: 0;
+            font-size: 0;
+            border: 1px solid #d1d1d1;
+            background-color: #ffffff;
+            border-radius: 3px;
+            width: 13px;
+            height: 13px;
+            position: relative;
+            top:2px;
+            vertical-align: 0;
+        }
+        .ui-agree_checkbox:checked:before{
+            font-family: "weui";
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-align: center;
+            speak: none;
+            display: inline-block;
+            vertical-align: middle;
+            text-decoration: inherit;
+            content: '\EA08';
+            color: #09BB07;
+            font-size: 13px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-48%) scale(.73);
+        }
+        .ui-btn{
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 14px;
+            padding-right: 14px;
+            box-sizing: border-box;
+            font-size: 18px;
+            text-align: center;
+            text-decoration: none;
+            color: #ffffff;
+            line-height: 2.5555;
+            border-radius: 5px;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            overflow: hidden;
+        }
+        .ui-btn_primary{
+            background-color: #1AAD19;
+        }
+        .ui-btn-area{
+            margin: 1.7em 15px .3em;
+        }
     </style>
 </head>
 <body>
@@ -565,6 +643,43 @@
                     </div>
 
                 </div>
+            </div>
+            <div class="ui-cells_title">选择</div>
+            <div class="ui-cells">
+                <div class="ui-cell ui-cell_select">
+                    <div class="ui-cell_bd">
+                        <select name="" id="" class="ui-select" style="width: 100%">
+                            <option value="">微信号</option>
+                            <option value="">微信号</option>
+                            <option value="">微信号</option>
+                            <option value="">微信号</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ui-cell ui-cell_select ui-cell_select-after">
+                    <div class="ui-cell-hd">
+                        国家/地区
+                    </div>
+                    <div class="ui-cell_bd">
+                        <select name="" id="" class="ui-select" style="width: 100%">
+                            <option value="">微信号</option>
+                            <option value="">微信号</option>
+                            <option value="">微信号</option>
+                            <option value="">微信号</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <label for="ui-agree" class="ui-agree">
+                <input type="checkbox" id="ui-agree" class="ui-agree_checkbox">
+                <span class="ui-agree_text">
+                    阅读并同意 <a href="javascript:void(0);">《相关条款》</a>
+                </span>
+            </label>
+            <div class="ui-btn-area">
+                <a href="javascrit:" class="ui-btn ui-btn_primary">
+                    确定
+                </a>
             </div>
         </div>
     </div>
