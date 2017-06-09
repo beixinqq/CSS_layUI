@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+        body{
+            line-height: 1.6;
+            font-family: -apple-system-font, "Helvetica Neue", sans-serif;
+        }
+        html,body{
+            height: 100%;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+        a{
+            text-decoration: none;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+        .container,.page{
+            position: absolute;
+            top:0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #f8f8f8;
+        }
+        .container{
+            overflow: hidden;
+        }
+        .page{
+            overflow-y: auto;
+           -webkit-overflow-scrolling: touch;
+            z-index: 1;
+        }
+        .page_hd{
+            padding: 30px;
+        }
+        .page_title{
+            text-align: left;
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+        .page_desc{
+            text-align: left;
+            font-size: 14px;
+            color: #888;
+        }
+        .ui-cells_title{
+            margin-top: .44em;
+            margin-bottom: .3em;
+            padding-left: 15px;
+            padding-right: 15px;
+            color: #999999;
+            font-size: 14px;
+        }
+        .ui-cells{
+            position: relative;
+            margin-top: 0;
+            background-color: #ffffff;
+            line-height: 1.47;
+            font-size: 17px;
+            overflow: hidden;
+        }
+        .ui-cells:first-child:before{
+            display: none;
+        }
+        .ui-cells:before{
+            content: '';
+            position: absolute;
+            top:0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            border-top: 1px solid red;
+            transform: scaleY(.5);
+            transform-origin: 0 0;
+        }
+        .ui-cells:after{
+          content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-bottom: 1px solid red;
+            transform: scaleY(.5);
+            transform-origin: 0 100%;
+        }
+        .ui-cell{
+            padding: 10px 15px;
+            position: relative;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .ui-cell_bd{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex:1;
+        }
+        .ui-cell_ft{
+            text-align: right;
+            color: #999999;
+        }
+        .ui-cell-access .ui-cell_ft{
+            padding-right: 13px;
+            position: relative;
+        }
+        .ui-badge{
+            padding: .15em .4em;
+            display: inline-block;
+            min-width: 8px;
+            border-radius: 18px;
+            background-color: red;
+            color: #ffffff;
+            line-height: 1.2;
+            text-align: center;
+            font-size: 12px;
+            vertical-align: middle;
+        }
+        .ui-badge_dot{
+            padding: .4em;
+            min-width: 0;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        .ui-cell_access .ui-cell_ft:after{
+            content: '';
+            display: inline-block;
+            height: 6px;
+            width: 6px;
+            border-width: 2px 2px 0 0;
+            border-color: #c8c8cd;
+            border-style:solid;
+            transform: matrix(.71,.71,-.71,.71,0,0);
+            position: absolute;
+            top:50%;
+            margin-top: -4px;
+            right: 2px;
+        }
+        .ui-cell_access:after{
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page">
+            <div class="page_hd">
+                <div class="page_title">Badge</div>
+                <div class="page_desc">微章</div>
+            </div>
+            <div class="page_bd">
+                <div class="ui-cells_title">新消息提示跟摘要信息后，统一在列表右侧</div>
+                <div class="ui-cells">
+                    <div class="ui-cell ui-cell_access">
+                        <div class="ui-cell_bd">单行列表</div>
+                        <div class="ui-cell_ft" style="font-size: 0">
+                            <span style="vertical-align: middle;font-size: 14px;">详细信息</span>
+                            <span class="ui-badge ui-badge_dot"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-cells_title">未读数红点跟在主题信息后，统一在列表左侧</div>
+                <div class="ui-cells">
+                    <div class="ui-cell">
+                        <div class="ui-cell_hd" style="position: relative;margin-right: 10px">
+                            <img src="../image/img01.jpg" style="width: 50px;display: block;" alt="">
+                            <span class="ui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</span>
+                        </div>
+                        <div class="ui-cell_bd">
+                            <p>联系人名称</p>
+                            <p style="font-size: 13px;color: #888888">摘要信息</p>
+                        </div>
+                    </div>
+                    <div class="ui-cell ui-cell_access">
+                        <div class="ui-cell_bd">
+                            <span style="vertical-align: middle;">单行列表</span>
+                            <span class="ui-badge" style="margin-left: 5px; " >8</span>
+                        </div>
+                        <div class="ui-cell_ft"></div>
+                    </div>
+                    <div class="ui-cell ui-cell_access">
+                        <div class="ui-cell_bd">
+                            <span style="vertical-align: middle;">单行列表</span>
+                            <span class="ui-badge" style="margin-left: 5px; " >8</span>
+                        </div>
+                        <div class="ui-cell_ft">详细信息</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
