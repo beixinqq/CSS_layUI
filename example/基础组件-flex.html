@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+        body,html{
+            height: 100%;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+        body{
+            line-height: 1.46;
+            font-family: -apple-system-font, "Helvetica Neue", sans-serif;
+        }
+        a{
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .container,.page{
+            position: absolute;
+            top:0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /*background-color: red;*/
+        }
+        .container{
+            overflow: hidden;
+        }
+        .page{
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            z-index: 1;
+        }
+        .page_hd{
+            padding: 30px;
+        }
+        .page_title{
+            text-align: left;
+            font-size: 20px;
+            font-weight: 400;
+        }
+        .page_desc{
+            margin-top: 5px;
+            color: #888888;
+            text-align: left;
+            font-size: 14px;
+        }
+        .page_bd_spacing{
+            padding: 0 15px;
+        }
+        .ui-flex{
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+        }
+        .ui-flex_item{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex:1;
+        }
+        .page.flex .placeholder{
+            margin: 5px;
+            padding: 0 10px;
+            background-color: #ebebeb;
+            height: 2.3em;
+            line-height: 2.3em;
+            text-align: center;
+            color: #cfcfcf;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="page flex">
+        <div class="page_hd">
+            <h1 class="page_title">flex</h1>
+            <p class="page_desc">flex布局</p>
+        </div>
+        <div class="page_bd page_bd_spacing">
+            <div class="ui-flex">
+                <div class="ui-flex_item">
+                    <div class="placeholder">weui</div>
+                </div>
+            </div>
+            <div class="ui-flex">
+                <div class="ui-flex_item">
+                    <div class="placeholder">weui</div>
+                </div>
+                <div class="ui-flex_item">
+                    <div class="placeholder">weui</div>
+                </div>
+                <div class="ui-flex_item">
+                    <div class="placeholder">weui</div>
+                </div>
+                <div class="ui-flex_item">
+                    <div class="placeholder">weui</div>
+                </div>
+            </div>
+            <div class="ui-flex">
+                <div class="placeholder">weui</div>
+                <div class="ui-flex_item">
+                    <div class="placeholder">weui</div>
+                </div>
+                <div class="placeholder">weui</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
