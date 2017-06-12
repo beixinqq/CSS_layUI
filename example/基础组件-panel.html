@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <style>
+        html{
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+        body{
+            line-height: 1.6;
+            font-family: -apple-system-font, "Helvetica Neue", sans-serif;
+        }
+        body,html{
+            height: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+        .container,.page{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top:0;
+            bottom: 0;
+        }
+        .container{
+            overflow: hidden;
+        }
+        .page{
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            z-index: 1;
+            background-color: #f8f8f8;
+        }
+        .page_hd{
+            padding: 30px;
+        }
+        .page_title{
+            text-align: left;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .page_desc{
+            text-align: left;
+            font-size: 15px;
+            color: #888;
+        }
+        .ui-panel{
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .ui-panel:before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top:0;
+            right: 0;
+            height: 1px;
+            border-top: 1px solid red;
+            transform-origin: 0 0;
+            transform: scaleY(.5);
+
+        }
+        .ui-panel:after{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 1px;
+            border-bottom: 1px solid red;
+            color: red;
+            transform-origin: 0 100%;
+            transform: scaleY(.5);
+        }
+        .ui-panel_hd{
+            position: relative;
+            padding: 14px 15px 10px;
+            color: #999999;
+            font-size: 13px;
+
+        }
+        .ui-panel_hd:after,.ui-media-box_appmsg:after,.ui-media-box:after,.ui-cell_access:after{
+            content: '';
+            position: absolute;
+            left: 15px;
+            bottom: 0;
+            right: 0;
+            height: 1px;
+            border-bottom: 1px solid red;
+            transform-origin: 0 100%;
+            transform: scaleY(.5);
+        }
+        .ui-media-box{
+            position: relative;
+            padding: 15px;
+            color: #000000;
+        }
+        .ui-media-box_appmsg{
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .ui-media-box_appmsg .ui-media-box_hd{
+            margin-right: .8em;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+        }
+        .ui-media-box_appmsg .ui-media-box_thumb{
+            width: 100%;
+            max-height: 100%;
+            vertical-align: top;
+        }
+
+        .ui-media-box_appmsg .ui-media-box_bd{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+            min-width: 0;
+        }
+        .ui-media-box_title{
+            font-weight: 400;
+            font-size: 17px;
+            width: auto;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+        .ui-media-box_desc{
+            color: #999999;
+            font-size: 13px;
+            line-height: 1.2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp:2;
+        }
+        .ui-cell{
+            padding: 10px 15px;
+            position: relative;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .ui-cell_link{
+            color: red;
+            font-size: 14px;
+        }
+        .ui-cell_bd{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex:1;
+        }
+        .ui-cell_access .ui-cell_ft:after{
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-width: 2px 2px 0 0;
+            border-color: red;
+            border-style: solid;
+            transform: matrix(.71,.71,-.71,.71,0,0);
+            position: absolute;
+            top:50%;
+            margin-top: -4px;
+            right: 2px;
+        }
+        .ui-media-box{
+            padding: 15px;
+            position: relative;
+        }
+        .ui-media-box:before{
+            content: '';
+            position: absolute;
+            top:0;
+            right: 0;
+            left: 15px;
+            height: 1px ;
+            border-top: 1px solid red;
+            transform-origin: 0 0;
+            transform: scaleY(.5);
+        }
+        .ui-media-box_small-appmsg{
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .ui-media-box_info{
+            margin-top: 15px;
+            padding-bottom: 5px;
+            font-size: 13px;
+            color: #cecece;
+            line-height: 1em;
+            list-style: none;
+            overflow: hidden;
+        }
+        .ui-media-box_info_meta{
+            float: left;
+            padding-right: 1em;
+        }
+        .ui-media-box_info_meta_extra{
+            padding-left: 1em;
+            border-left: 1px solid red;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="page panel">
+        <div class="page_hd">
+            <div class="page_title">panel</div>
+            <div class="page_desc">面板</div>
+        </div>
+        <div class="page_bd">
+            <div class="ui-panel ui-panel_access">
+                <div class="ui-panel_hd">
+                    图文组合列表
+                </div>
+                <div class="ui-panel_bd">
+                    <a href="javascript:;" class="ui-media-box ui-media-box_appmsg">
+                        <div class="ui-media-box_hd">
+                            <img src="../image/img01.jpg" class="ui-media-box_thumb" alt="">
+                        </div>
+                        <div class="ui-media-box_bd">
+                            <h4 class="ui-media-box_title">标题一</h4>
+                            <p class="ui-media-box_desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="ui-media-box ui-media-box_appmsg">
+                        <div class="ui-media-box_hd">
+                            <img src="../image/img01.jpg" class="ui-media-box_thumb" alt="">
+                        </div>
+                        <div class="ui-media-box_bd">
+                            <h4 class="ui-media-box_title">标题一</h4>
+                            <p class="ui-media-box_desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="ui-panel_ft">
+                    <a href="javascript:;" class="ui-cell ui-cell_access ui-cell_link">
+                        <div class="ui-cell_bd">查看更多</div>
+                        <div class="ui-cell_ft"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="ui-panel  ui-panel_access">
+                <div class="ui-panel_hd">
+                    文字组合列表
+                </div>
+                <div class="ui-panel_bd">
+                    <div class="ui-media-box ui-media-box_text">
+                        <h4 class="ui-media-box_title">标题4</h4>
+                        <p class="ui-media-box_desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                    </div>
+                    <div class="ui-media-box ui-media-box_text">
+                        <h4 class="ui-media-box_title">标题4</h4>
+                        <p class="ui-media-box_desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                    </div>
+                </div>
+                <div class="ui-panel_ft">
+                    <a href="javascript:;" class="ui-cell ui-cell_access ui-cell_link">
+                        <div class="ui-cell_bd">查看更多</div>
+                        <div class="ui-cell_ft"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="ui-panel">
+                <div class="ui-panel_hd">
+                    小图文组合列表
+                </div>
+                <div class="ui-panel_bd">
+                    <div class="ui-media-box ui-media-box_small-appmsg">
+                        <div class="ui-cells">
+                            <a href="javascript:;" class="ui-cell ui-cell_access">
+                                <div class="ui-cell_hd">
+                                    <img src="../image/img01.jpg" alt="" style="width: 20px;margin-right: 5px;display: block">
+                                </div>
+                                <div class="ui-cell_bd ui-cell_primary">
+                                    <p>文字标题</p>
+                                </div>
+                                <div class="ui-cell_ft"></div>
+                            </a>
+                            <a href="javascript:;" class="ui-cell ui-cell_access">
+                                <div class="ui-cell_hd">
+                                    <img src="../image/img01.jpg" alt="" style="width: 20px;margin-right: 5px;display: block">
+                                </div>
+                                <div class="ui-cell_bd ui-cell_primary">
+                                    <p>文字标题</p>
+                                </div>
+                                <div class="ui-cell_ft"></div>
+                            </a>
+                            <a href="javascript:;" class="ui-cell ui-cell_access">
+                                <div class="ui-cell_hd">
+                                    <img src="../image/img01.jpg" alt="" style="width: 20px;margin-right: 5px;display: block">
+                                </div>
+                                <div class="ui-cell_bd ui-cell_primary">
+                                    <p>文字标题</p>
+                                </div>
+                                <div class="ui-cell_ft"></div>
+                            </a>
+                        </div>
+                        <div class="ui-panel_ft">
+                            <a href="javascript:;" class="ui-cell ui-cell_access ui-cell_link">
+                                <div class="ui-cell_bd">查看更多</div>
+                                <div class="ui-cell_ft"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-panel ui-panel_access">
+                <div class="ui-panel_hd">
+                    文字列表附来源
+                </div>
+                <div class="ui-panel_bd">
+                    <a href="javascript:;" class="ui-media-box ui-media-box_appmsg">
+                        <div class="ui-media-box_bd">
+                            <h4 class="ui-media-box_title">标题一</h4>
+                            <p class="ui-media-box_desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                            <ul class="ui-media-box_info">
+                                <li class="ui-media-box_info_meta">文字来源</li>
+                                <li class="ui-media-box_info_meta">时间</li>
+                                <li class="ui-media-box_info_meta ui-media-box_info_meta_extra">其他信息</li>
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+                <div class="ui-panel_ft">
+                    <a href="javascript:;" class="ui-cell ui-cell_access ui-cell_link">
+                        <div class="ui-cell_bd">查看更多</div>
+                        <div class="ui-cell_ft"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
